@@ -1,0 +1,20 @@
+{
+  //"files": [],
+  //"references": [
+  //  { "path": "./tsconfig.app.json" },
+  //  { "path": "./tsconfig.node.json" }
+  //],
+  "compilerOptions": {
+    "composite": true,
+    "jsx": "react-jsx",
+    "jsxImportSource": "@emotion/react",
+    "types": ["@emotion/react/types/css-prop"],
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "module": "esnext",
+    "target": "es6",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["src"]
+}
