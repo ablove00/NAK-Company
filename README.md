@@ -1,15 +1,49 @@
-# React + TypeScript + Vite
+# NAK-Company Front-End Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+این پروژه یک چالش کدنویسی فرانت‌اند برای شرکت NAK است که با React، TypeScript و Vite پیاده‌سازی شده است.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ویژگی‌ها و امکانات پروژه
 
-## Expanding the ESLint configuration
+- پشتیبانی کامل از زبان‌های **فارسی** و **انگلیسی** با استفاده از i18n برای بین‌المللی‌سازی (Internationalization).
+- مدیریت حالت (State Management) با استفاده از **Zustand**.
+- استایل‌دهی فقط با **EmotionJS** و بدون استفاده از CSS سنتی.
+- استفاده کامل از **TypeScript** برای افزایش قابلیت اطمینان کد.
+- ساخت و اجرای پروژه با **Vite**.
+- فرم‌ها به صورت کامل با استفاده از **react-hook-form** پیاده‌سازی شده‌اند.
+- کنترل دسترسی صفحات بر اساس وضعیت ورود کاربر:
+  - اگر کاربر وارد نشده باشد، فقط صفحات ورود (Sign In) و ثبت‌نام (Sign Up) قابل دسترسی هستند.
+  - پس از ورود، دسترسی به این صفحات محدود می‌شود.
+- حفظ وضعیت ورود کاربر حتی بعد از رفرش مرورگر.
+- مانیتورینگ وضعیت اتصال شبکه به صورت زنده و نمایش پیغام Toast در صورت قطع اتصال.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
+
+## مستندات
+
+- مستند طراحی UI/UX:  
+  [https://www.figma.com/design/OWGXMF4R7m1DiSsnSFRrFs/1?node-id=0-1&p=f&m=dev](https://www.figma.com/design/OWGXMF4R7m1DiSsnSFRrFs/1?node-id=0-1&p=f&m=dev)
+
+- مستند API:  
+  [https://nak-interview.darkube.app/api](https://nak-interview.darkube.app/api)
+
+---
+
+## راهنمای توسعه
+
+- این پروژه بر اساس TypeScript توسعه یافته است.
+- استایل‌دهی فقط با EmotionJS انجام شده است.
+- مدیریت وضعیت به کمک Zustand صورت گرفته است.
+- برای بین‌المللی‌سازی (i18n) تمامی رشته‌های متنی در کد استفاده شده‌اند.
+- فرم‌ها به کمک react-hook-form ساخته شده‌اند.
+- پروژه با Vite ساخته و اجرا می‌شود.
+
+---
+
+## راهنمای استفاده از ESLint
+
+اگر در حال توسعه پروژه هستید، توصیه می‌شود تنظیمات ESLint را به صورت زیر به‌روزرسانی کنید تا قوانین دقیق‌تر و تخصصی‌تری داشته باشید:
 
 ```js
 export default tseslint.config([
@@ -17,54 +51,15 @@ export default tseslint.config([
   {
     files: ['**/*.{ts,tsx}'],
     extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
       ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
       ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
       ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
     ],
     languageOptions: {
       parserOptions: {
         project: ['./tsconfig.node.json', './tsconfig.app.json'],
         tsconfigRootDir: import.meta.dirname,
       },
-      // other options...
     },
   },
 ])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-"# NAK-Company" 
